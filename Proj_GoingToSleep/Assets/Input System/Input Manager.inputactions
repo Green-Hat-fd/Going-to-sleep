@@ -1,0 +1,34 @@
+{
+    "name": "Input Manager",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "7ff16010-fe2e-4a63-92f9-43f6f0910848",
+            "actions": [
+                {
+                    "name": "Press",
+                    "type": "Button",
+                    "id": "a8e97388-5573-4c90-8bfc-04d9ddb4d8d7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "026baf52-a74b-402a-b22a-9b1b05602351",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
