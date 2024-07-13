@@ -35,15 +35,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Mouse roll"",
-                    ""type"": ""Value"",
-                    ""id"": ""a3b6fc86-5a41-4bc6-a64c-46dd55d9d881"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -57,17 +48,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""action"": ""Press"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c5605e9f-78ee-4943-8c2a-664f85875e87"",
-                    ""path"": ""<Mouse>/scroll/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Mouse roll"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -77,7 +57,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Press = m_Player.FindAction("Press", throwIfNotFound: true);
-        m_Player_Mouseroll = m_Player.FindAction("Mouse roll", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -138,13 +117,11 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Press;
-    private readonly InputAction m_Player_Mouseroll;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
         public PlayerActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Press => m_Wrapper.m_Player_Press;
-        public InputAction @Mouseroll => m_Wrapper.m_Player_Mouseroll;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -157,9 +134,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @Press.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress;
                 @Press.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress;
                 @Press.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPress;
-                @Mouseroll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseroll;
-                @Mouseroll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseroll;
-                @Mouseroll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseroll;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -167,9 +141,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @Press.started += instance.OnPress;
                 @Press.performed += instance.OnPress;
                 @Press.canceled += instance.OnPress;
-                @Mouseroll.started += instance.OnMouseroll;
-                @Mouseroll.performed += instance.OnMouseroll;
-                @Mouseroll.canceled += instance.OnMouseroll;
             }
         }
     }
@@ -177,6 +148,5 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnPress(InputAction.CallbackContext context);
-        void OnMouseroll(InputAction.CallbackContext context);
     }
 }
