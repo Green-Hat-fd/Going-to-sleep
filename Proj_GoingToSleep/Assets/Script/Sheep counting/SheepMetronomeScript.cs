@@ -25,7 +25,9 @@ public class SheepMetronomeScript : MonoBehaviour
     [SerializeField] AudioSource correctSfx, errorSfx;
     [SerializeField] bool debug_start;
     [Space(20)]
-    [SerializeField] Slider slCenter, slMin, slMax;
+    [SerializeField] Slider slCenter;
+    [SerializeField] Slider slMin, slMax;
+    [SerializeField] Image greenAreaImg;
     
     
     
@@ -110,7 +112,14 @@ public class SheepMetronomeScript : MonoBehaviour
         slMin.value = targetPos - targetNum;
         slMax.value = targetPos + targetNum;
 
-        print($"Uscito in {targetPos} di sez. \"{targetNum}\"\t(nella linea, [{targetPos-targetNum} ; {targetPos+targetNum}])");
+
+        //greenAreaImg.fillAmount = 2 - (targetNum * 2);
+        //greenAreaImg.fillAmount = (targetPos + targetNum) - (targetPos - targetNum);
+        greenAreaImg.fillAmount = targetNum;
+        greenAreaImg.rectTransform.rotation = Quaternion.Euler((targetPos * -180 + targetNum * 90) * Vector3.forward);
+
+
+        print($"Uscito in {targetPos} di sez. \"{targetNum}\"\t(nella linea, [{targetPos-targetNum} ; {targetPos+targetNum}] --> dim: {greenAreaImg.fillAmount * 2})");
     }
 
 
