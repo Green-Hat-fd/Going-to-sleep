@@ -1,0 +1,16 @@
+
+##  NOTES  ##
+
+SpeedRange max & min values:
+	• 2 - 4 [min values for the Min & Max]
+	• 6.5 [max values for the Max]
+	• 3 [the perfect speed]
+
+Angles
+	• 45-65, but I think 55 is the perfect amount
+
+"Min_max_area_size" sizes
+	• 0.1 is too much small
+	• 0.8 (maybe) is too big
+	• 0.5 [perfect middleground]
+	• 0.25 - 0.65 [perfect values for Min & Max]
