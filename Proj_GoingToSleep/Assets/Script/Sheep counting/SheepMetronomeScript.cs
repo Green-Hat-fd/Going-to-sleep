@@ -28,6 +28,7 @@ public class SheepMetronomeScript : MonoBehaviour
     [SerializeField] Slider slCenter;
     [SerializeField] Slider slMin, slMax;
     [SerializeField] Image greenAreaImg;
+    [SerializeField] Image bgGreenAreaImg;
     
     
     
@@ -48,7 +49,7 @@ public class SheepMetronomeScript : MonoBehaviour
     {
         if(isStarted
            &&
-           (sheepSl.value >= slMin.value && sheepSl.value <= slMax.value))
+           sheepSl.value >= slMin.value && sheepSl.value <= slMax.value)
         {
             correctSfx.Play();
         }
@@ -85,8 +86,13 @@ public class SheepMetronomeScript : MonoBehaviour
 
         
         isStarted = debug_start;
+
+
+        if(sheepTr != null)
+            sheepTr.rotation = Quaternion.identity;
     }
     
+    [SerializeField] Transform sheepTr;
     
 
     void SwapEndToGoNum()
@@ -104,7 +110,8 @@ public class SheepMetronomeScript : MonoBehaviour
 
     void ChangeTarget()
     {
-        //
+        //Chooses a random half area size;
+        //from it, it chooses a random number within the slider
         targetNum = Random.Range(min_max_AreaSize.x / 2, min_max_AreaSize.y / 2);
         float targetPos = Random.Range(-1 + targetNum, 1 - targetNum);
 
@@ -113,10 +120,8 @@ public class SheepMetronomeScript : MonoBehaviour
         slMax.value = targetPos + targetNum;
 
 
-        //greenAreaImg.fillAmount = 2 - (targetNum * 2);
-        //greenAreaImg.fillAmount = (targetPos + targetNum) - (targetPos - targetNum);
-        greenAreaImg.fillAmount = targetNum;
-        greenAreaImg.rectTransform.rotation = Quaternion.Euler((targetPos * -180 + targetNum * 90) * Vector3.forward);
+        greenAreaImg.fillAmount = targetNum * (angle / 180);
+        greenAreaImg.rectTransform.rotation = Quaternion.Euler((targetPos - (greenAreaImg.fillAmount * 2)) * angle * Vector3.forward);
 
 
         print($"Uscito in {targetPos} di sez. \"{targetNum}\"\t(nella linea, [{targetPos-targetNum} ; {targetPos+targetNum}] --> dim: {greenAreaImg.fillAmount * 2})");
@@ -128,7 +133,8 @@ public class SheepMetronomeScript : MonoBehaviour
 
     private void OnValidate()
     {
-        
+        bgGreenAreaImg.fillAmount = angle / 180;
+        bgGreenAreaImg.rectTransform.rotation = Quaternion.Euler(-angle *  Vector3.forward);
     }
 
     #endregion
