@@ -1,0 +1,11 @@
+# HIGH SCORE #
+0
+
+# SETTINGS #
+0
+0,6
+0,4
+True
+0,2
+False
+True

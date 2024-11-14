@@ -137,7 +137,8 @@ public class SettingsSO_Script : ScriptableObject
     public float GetSoundVolume_Percent() => soundVolume / 100;
 
     public bool GetIsEndDingOn() => isEndDingOn;
-    public float GetEndDingVolume() => endDingVolume;
+    public float GetEndDingVolume() => audioCurve.Evaluate(endDingVolume);
+    public float GetEndDingVolume_Percent() => endDingVolume / 100;
     public bool GetIsBaahOn() => isBaahOn;
 
 
@@ -197,6 +198,9 @@ public class SettingsSO_Script : ScriptableObject
         English,
         Italian
     }
+
+    //Reset all settings
+    // TODO: Aggiungi questa funzione (con i settings dallo S.O.)
 
     #endregion
 }

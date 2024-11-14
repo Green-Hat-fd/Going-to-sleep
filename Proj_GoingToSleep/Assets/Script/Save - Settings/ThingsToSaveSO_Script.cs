@@ -7,4 +7,12 @@ public class ThingsToSaveSO_Script : ScriptableObject
 {
     [Space(15)]
     [SerializeField] int highScore;
+
+
+    public int GetHighScore() => highScore;
+
+    public void LoadHighScore(int new_highScore)
+    {
+        highScore = new_highScore;
+    }
 }
