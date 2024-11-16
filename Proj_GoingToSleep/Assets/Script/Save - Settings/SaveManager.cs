@@ -24,27 +24,9 @@ public class SaveManager : MonoBehaviour
         file_path = Application.dataPath + "/" + fileName + ".txt";
     }
 
-    void Update()
-    {
-        if(createSaveFile)
-        {
-            SaveGame();
-            createSaveFile = false;
-        }
-        if(loadSaveFile)
-        {
-            LoadGame();
-            loadSaveFile = false;
-        }
-    }
-    // FIXME: inserire queste parti come
-    // - pulsanti (nella UI di unity -> altro script)
-    // - funzioni (da attivare con tasto DX)
-    //       (nella region "Useful functions" sotto)
-    [Space(20), SerializeField] bool createSaveFile; [SerializeField] bool loadSaveFile;
 
 
-
+    [ContextMenu("\u2013 Save in a file \u2013")]
     public void SaveGame()
     {
         string saveString = "";
@@ -99,6 +81,7 @@ public class SaveManager : MonoBehaviour
     }
 
 
+    [ContextMenu("\u2013 Load the file \u2013")]
     public void LoadGame()
     {
         string[] fileReading = new string[0];
@@ -196,6 +179,7 @@ public class SaveManager : MonoBehaviour
 
 
     #region Useful Functions
-
+    
+    
     #endregion
 }

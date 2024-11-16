@@ -294,11 +294,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ac6c00c31a2eb4884c87eb02848043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings_SO: {fileID: 11400000, guid: 730c7e48cd620d0439caba227a595b86, type: 2}
+  settings_SO: {fileID: 11400000, guid: 1609b5c688eb0894b99918a268949342, type: 2}
   things_SO: {fileID: 11400000, guid: 1756fe80b135b5e41ab26b351dfbb7a7, type: 2}
   fileName: unityutilityasset
-  createSaveFile: 0
-  loadSaveFile: 0
 --- !u!1 &223442942
 GameObject:
   m_ObjectHideFlags: 0
