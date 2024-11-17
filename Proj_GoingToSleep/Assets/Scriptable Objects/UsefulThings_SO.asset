@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76f1bee9c13f2da47acc934493f8041c, type: 3}
-  m_Name: ThingsToSaveSO_Script_SO
+  m_Name: UsefulThings_SO
   m_EditorClassIdentifier: 
   highScore: 0

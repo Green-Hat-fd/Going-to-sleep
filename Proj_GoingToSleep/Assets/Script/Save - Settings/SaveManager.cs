@@ -7,7 +7,7 @@ public class SaveManager : MonoBehaviour
 {
     [Header("\u2014\u2014 Information variables \u2014\u2014")]
     [SerializeField] SettingsSO_Script settings_SO;
-    [SerializeField] ThingsToSaveSO_Script things_SO;
+    [SerializeField] UsefulThingsSO_Script things_SO;
 
     [Space(20)]
     [SerializeField] string fileName = "unityutilityasset";
